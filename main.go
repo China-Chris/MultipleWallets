@@ -7,13 +7,14 @@ import (
 	"Multiplewallets/handle"
 	"flag"
 	"fmt"
+	"net/http/pprof"
+	_ "net/http/pprof"
+	"os"
+
 	"github.com/fsnotify/fsnotify"
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"net/http/pprof"
-	_ "net/http/pprof"
-	"os"
 )
 
 func main() {
@@ -91,8 +92,6 @@ func route(r *gin.Engine) {
 		group.POST("/UpdateWeight", handle.UpdateWeight)
 		// 修改总门限值		  [√]
 		group.POST("/UpdateThreshold", handle.UpdateThreshold)
-		// 获取钱包成员的资料    [x]需求变更删除该接口
-		group.GET("/GetUserInfo", handle.GetUserInfo)
 		//删除成员地址		  [√]
 		group.DELETE("/DeleteMember", handle.DeleteMember)
 		//替换成员地址		  [√]

@@ -10,14 +10,6 @@ import (
 
 // CreateMultipleWallet 创建多签钱包的业务逻辑
 func CreateMultipleWallet(req *request.CreateMultipleWallet) (string, error) {
-	//根据地址获取钱包
-	//_, err := daos.GetMultipleSignatureWalletByAddress(req.Address)
-	//if err != nil {
-	//	return "", err
-	//}
-	//if walleted.WalletId > 0 {
-	//	return "", errorss.NewCustomErrorWithCode(errors_const.ErrorDuplicateWalletCreation, "zh")
-	//}
 	wallet := models.MultipleSignatureWallet{
 		Address:    req.Address,
 		Threshold:  req.Threshold,
